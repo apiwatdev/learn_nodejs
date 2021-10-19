@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog me</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog me | <%= title %></title>
+  </head>
+  <body>
     <nav>
-        <div class="site-title">
-            <a href="/"> Blog Me</a>
-            <p>Apiwat Site</p>
-        </div>
-        <ul>
-            <li><a href="/">Blogs</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/blogs/create">New Blog</a></li>
-        </ul>
+      <div class="site-title">
+        <a href="/"> Blog Me</a>
+        <p>Apiwat Site</p>
+      </div>
+      <ul>
+        <li><a href="/">Blogs</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/blogs/create">New Blog</a></li>
+      </ul>
     </nav>
 
     <div class="blog-content">
-        <h2>All Blogs</h2>
+      <h2>All Blogs</h2>
+      <% if (blogs.length > 0) { %> 
+            <% blogs.forEach( blog => { %>
+                <h3 class="title"> <%= blog.title%></h3>
+                <p class="snippet">  <%= blog.snippet%></p>
+            <% }) %>
+        <% } else { %>
+      <p>There are no blogs display...</p>
+      <% }%>
     </div>
-</body>
+  </body>
 </html>
